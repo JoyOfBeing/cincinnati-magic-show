@@ -7,7 +7,7 @@ export default function Home() {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
-    guests: "1",
+    phone: "",
   });
   const [submitted, setSubmitted] = useState(false);
   const [submitting, setSubmitting] = useState(false);
@@ -60,7 +60,7 @@ export default function Home() {
         <div className={styles.detailsGrid}>
           <div className={styles.detailCard}>
             <p className={styles.detailLabel}>When</p>
-            <p className={styles.detailValue}>Coming Soon</p>
+            <p className={styles.detailValue}>October 9-11, 2026</p>
           </div>
           <div className={styles.detailCard}>
             <p className={styles.detailLabel}>Where</p>
@@ -133,19 +133,16 @@ export default function Home() {
               />
             </div>
             <div className={styles.inputGroup}>
-              <label className={styles.inputLabel} htmlFor="guests">Number of Guests</label>
-              <select
-                id="guests"
-                name="guests"
-                className={styles.select}
-                value={formData.guests}
+              <label className={styles.inputLabel} htmlFor="phone">Phone</label>
+              <input
+                id="phone"
+                name="phone"
+                type="tel"
+                placeholder="(555) 555-5555"
+                className={styles.input}
+                value={formData.phone}
                 onChange={handleChange}
-              >
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-              </select>
+              />
             </div>
             <button
               type="submit"
