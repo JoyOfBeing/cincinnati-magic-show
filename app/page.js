@@ -1,69 +1,167 @@
-import Image from "next/image";
+"use client";
+
+import { useState } from "react";
 import styles from "./page.module.css";
 
 export default function Home() {
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    guests: "1",
+  });
+  const [submitted, setSubmitted] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
+
+  function handleChange(e) {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  }
+
+  async function handleSubmit(e) {
+    e.preventDefault();
+    setSubmitting(true);
+
+    try {
+      const res = await fetch("/api/rsvp", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
+
+      if (res.ok) {
+        setSubmitted(true);
+      }
+    } catch (err) {
+      console.error("RSVP failed:", err);
+    } finally {
+      setSubmitting(false);
+    }
+  }
+
   return (
     <div className={styles.page}>
-      <main className={styles.main}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className={styles.intro}>
-          <h1>
-            To get started, edit the{" "}
-            <code className={styles.code}>page.js</code> file.
-          </h1>
-          <p>
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+      {/* Hero */}
+      <section className={styles.hero}>
+        <p className={styles.heroSubtitle}>You are invited</p>
+        <h1 className={styles.heroTitle}>The Magic Show</h1>
+        <p className={styles.heroCity}>Cincinnati</p>
+        <p className={styles.heroTagline}>
+          An immersive experience that will change the way you see everything.
+          Step through the door.
+        </p>
+        <a href="#rsvp" className={styles.ctaButton}>
+          Claim Your Seat
+        </a>
+        <span className={styles.scrollHint}>SCROLL TO EXPLORE</span>
+      </section>
+
+      {/* Details */}
+      <section className={styles.section}>
+        <h2 className={styles.sectionTitle}>The Details</h2>
+        <div className={styles.detailsGrid}>
+          <div className={styles.detailCard}>
+            <p className={styles.detailLabel}>When</p>
+            <p className={styles.detailValue}>Coming Soon</p>
+          </div>
+          <div className={styles.detailCard}>
+            <p className={styles.detailLabel}>Where</p>
+            <p className={styles.detailValue}>Cincinnati, OH</p>
+          </div>
+          <div className={styles.detailCard}>
+            <p className={styles.detailLabel}>Duration</p>
+            <p className={styles.detailValue}>3 Hours</p>
+          </div>
+          <div className={styles.detailCard}>
+            <p className={styles.detailLabel}>Capacity</p>
+            <p className={styles.detailValue}>Limited</p>
+          </div>
         </div>
-        <div className={styles.ctas}>
-          <a
-            className={styles.primary}
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className={styles.logo}
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={14}
-            />
-            Deploy Now
-          </a>
-          <a
-            className={styles.secondary}
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
+      </section>
+
+      {/* About */}
+      <section className={styles.section}>
+        <h2 className={styles.sectionTitle}>What Is This?</h2>
+        <p className={styles.aboutText}>
+          The Magic Show is not a performance. It is not a seminar. It is not
+          what you think it is. It is an <em>immersive experience</em> designed
+          to dissolve the boundaries between who you are and who you could be.
+          <br /><br />
+          You will not sit in the audience. There is no audience. There is only
+          the experience — and <em>you are part of it</em>.
+          <br /><br />
+          This is an invite-only gathering. If you are here, someone believed
+          you were ready.
+        </p>
+      </section>
+
+      {/* RSVP */}
+      <section id="rsvp" className={styles.rsvpSection}>
+        <h2 className={styles.sectionTitle}>Reserve Your Spot</h2>
+
+        {submitted ? (
+          <div className={styles.successMessage}>
+            <p className={styles.successTitle}>You're on the list.</p>
+            <p className={styles.successText}>
+              We'll be in touch with details. Until then — stay curious.
+            </p>
+          </div>
+        ) : (
+          <form className={styles.rsvpForm} onSubmit={handleSubmit}>
+            <div className={styles.inputGroup}>
+              <label className={styles.inputLabel} htmlFor="name">Name</label>
+              <input
+                id="name"
+                name="name"
+                type="text"
+                required
+                placeholder="Your full name"
+                className={styles.input}
+                value={formData.name}
+                onChange={handleChange}
+              />
+            </div>
+            <div className={styles.inputGroup}>
+              <label className={styles.inputLabel} htmlFor="email">Email</label>
+              <input
+                id="email"
+                name="email"
+                type="email"
+                required
+                placeholder="your@email.com"
+                className={styles.input}
+                value={formData.email}
+                onChange={handleChange}
+              />
+            </div>
+            <div className={styles.inputGroup}>
+              <label className={styles.inputLabel} htmlFor="guests">Number of Guests</label>
+              <select
+                id="guests"
+                name="guests"
+                className={styles.select}
+                value={formData.guests}
+                onChange={handleChange}
+              >
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+              </select>
+            </div>
+            <button
+              type="submit"
+              className={styles.submitButton}
+              disabled={submitting}
+            >
+              {submitting ? "Submitting..." : "RSVP Now"}
+            </button>
+          </form>
+        )}
+      </section>
+
+      {/* Footer */}
+      <footer className={styles.footer}>
+        The Magic Show &mdash; Cincinnati &mdash; A Joy of Being Experience
+      </footer>
     </div>
   );
 }
