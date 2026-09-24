@@ -21,10 +21,9 @@ const SCENES = [
       "Flashlight or lantern (if no porch light)",
       "Bluetooth speaker + low mysterious playlist (outside ambience)",
       "Signage: 'You are expected.'",
-      "Meta Ray-Ban glasses x3–5 (rotating — cleaned between participants)",
     ],
-    transition: "P1 checks them in, collects phone, puts Meta glasses on them, rushes them to QVC set.",
-    notes: "Set the tone immediately — they are expected, they are chosen. No small talk. Quick, confident energy. Phone is bagged and labeled here. Meta glasses go on at this point — participant wears them through the entire experience until Confessional.",
+    transition: "P1 checks them in, collects phone, rushes them to QVC set.",
+    notes: "Set the tone immediately — they are expected, they are chosen. No small talk. Quick, confident energy. Phone is bagged and labeled here.",
   },
   {
     id: 1,
@@ -237,7 +236,7 @@ const SCENES = [
       "Tip jar or tip envelopes + sign: 'Tips for performers'",
     ],
     transition: "P4 hands back their phone. Show's over. No questions answered.",
-    notes: "No debrief. No explanation. Just: what do you have to say? P4 collects Meta glasses before they sit down (so confessional is face-on-camera, not POV). Returns their labeled phone bag and points to the tip jar. Then they're released back into the world.",
+    notes: "No debrief. No explanation. Just: what do you have to say? P4 returns their labeled phone bag and points to the tip jar. Then they're released back into the world.",
   },
 ];
 
@@ -420,7 +419,6 @@ export default function ProductionPage() {
             { item: "Monitor x1", note: "Hotline station — displays live QVC feed" },
             { item: "Tripods x2", note: "For both cameras" },
             { item: "HDMI cable", note: "QVC camera → Hotline monitor (same floor — short run)" },
-            { item: "Meta Ray-Ban glasses x3–5", note: "Participant POV capture — worn from Arrival through Confessional. Rotate + wipe between participants." },
           ].map((g) => (
             <div key={g.item} className={styles.castRow}>
               <span className={styles.castRole}>{g.item}</span>
@@ -511,7 +509,7 @@ export default function ProductionPage() {
             { item: "Four Hands", note: "A wellness / body oil brand — massage oils, candles, blankets" },
             { item: "QVC", note: "Any bold brand that wants their product sold live on a fake QVC set" },
             { item: "Confessional", note: "Polaroid or Fujifilm — instant camera, participant leaves with a branded photo" },
-            { item: "Entire Show", note: "Meta (Ray-Ban) — presenting sponsor. Glasses capture every participant's POV. 30 first-person journeys per show. The dream use case for the product." },
+            { item: "Entire Show (future)", note: "Meta (Ray-Ban) — POV smart glasses as presenting sponsor. Participants wear them through the experience. 30 first-person journeys per show. Recording limits need to be solved first." },
           ].map((g) => (
             <div key={g.item} className={styles.castRow}>
               <span className={styles.castRole}>{g.item}</span>
