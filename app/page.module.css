@@ -404,15 +404,64 @@
 }
 
 @media (max-width: 600px) {
-  .detailsGrid {
-    grid-template-columns: 1fr;
+  .hero {
+    min-height: auto;
+    padding: 4rem 1.25rem 3rem;
   }
 
-  .hero {
-    padding: 1.5rem;
+  .heroTagline {
+    font-size: 1.05rem;
+    margin-bottom: 2rem;
+  }
+
+  .ctaButton {
+    width: 100%;
+    text-align: center;
+    padding: 1rem 1.5rem;
+  }
+
+  .scrollHint {
+    display: none;
+  }
+
+  .section {
+    padding: 3.5rem 1.25rem;
+  }
+
+  .sectionTitle {
+    font-size: 1.5rem;
+  }
+
+  .detailsGrid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .detailCard {
+    padding: 1.25rem;
   }
 
   .expectItem {
     gap: 1rem;
+  }
+
+  .aboutText {
+    font-size: 1rem;
+  }
+
+  .blinkCard {
+    padding: 1.25rem;
+  }
+
+  .rsvpSection {
+    padding: 3.5rem 1.25rem;
+  }
+
+  .input, .select {
+    font-size: 16px;
+  }
+
+  .submitButton {
+    width: 100%;
   }
 }

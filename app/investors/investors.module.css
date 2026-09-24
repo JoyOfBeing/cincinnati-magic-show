@@ -353,12 +353,54 @@
 }
 
 @media (max-width: 600px) {
+  .page {
+    padding: 0 1.25rem;
+  }
+
   .hero {
-    padding: 5rem 0 4rem;
+    padding: 5rem 0 3rem;
+  }
+
+  .title {
+    font-size: clamp(2rem, 8vw, 5rem);
+  }
+
+  .subtitle {
+    font-size: 1.05rem;
+  }
+
+  .section {
+    padding: 3rem 0;
+  }
+
+  .sectionTitle {
+    font-size: 1.35rem;
   }
 
   .twoCol, .threeCol {
     grid-template-columns: 1fr;
+  }
+
+  .card {
+    padding: 1.25rem;
+  }
+
+  .statCard {
+    padding: 1.25rem;
+  }
+
+  .statNum {
+    font-size: 2rem;
+  }
+
+  .econRow, .econRowTotal {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.25rem;
+  }
+
+  .econValue, .econValueNeg, .econRowTotal .econValue {
+    font-size: 0.85rem;
   }
 
   .arcFlow {
@@ -368,5 +410,24 @@
   .arcArrow {
     width: 2px;
     height: 20px;
+  }
+
+  .arcNode {
+    min-width: auto;
+    width: 100%;
+  }
+
+  .ctaSection {
+    padding: 3.5rem 0;
+  }
+
+  .ctaTitle {
+    font-size: 1.5rem;
+  }
+
+  .ctaButton {
+    width: 100%;
+    text-align: center;
+    padding: 1rem 1.5rem;
   }
 }
