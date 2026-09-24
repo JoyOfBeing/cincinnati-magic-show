@@ -1,0 +1,313 @@
+.page {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 3rem 2rem;
+  font-family: var(--font-main);
+  color: var(--text-primary);
+  position: relative;
+  z-index: 1;
+}
+
+.header {
+  margin-bottom: 4rem;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.title {
+  font-size: 2rem;
+  font-weight: 700;
+  background: linear-gradient(135deg, var(--neon-magenta), var(--neon-purple), var(--neon-cyan));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 0.25rem;
+}
+
+.subtitle {
+  font-size: 0.875rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--neon-magenta);
+  margin-bottom: 2rem;
+}
+
+.meta {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 1rem;
+}
+
+.metaLabel {
+  display: block;
+  font-size: 0.7rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 0.25rem;
+}
+
+.metaValue {
+  display: block;
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+/* Sections */
+.section {
+  margin-bottom: 4rem;
+}
+
+.sectionTitle {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  background: linear-gradient(90deg, var(--neon-cyan), var(--neon-purple));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Flow overview */
+.flowTrack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 2rem;
+}
+
+.flowNode {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: var(--bg-card);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  padding: 0.75rem 1rem;
+  min-width: 80px;
+  flex: 1;
+}
+
+.flowNum {
+  font-weight: 700;
+  font-size: 0.875rem;
+  color: var(--neon-magenta);
+  margin-bottom: 0.25rem;
+}
+
+.flowName {
+  font-size: 0.65rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  text-align: center;
+  margin-bottom: 0.25rem;
+}
+
+.flowDur {
+  font-size: 0.65rem;
+  color: var(--text-muted);
+}
+
+.floorMap {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.floorBlock {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.75rem 1rem;
+  background: var(--bg-card);
+  border-left: 3px solid var(--neon-cyan);
+  font-size: 0.9rem;
+}
+
+.floorLabel {
+  font-weight: 700;
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--neon-cyan);
+  min-width: 60px;
+}
+
+.arcNote {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  font-style: italic;
+  margin-top: 1rem;
+}
+
+/* Scene cards */
+.sceneCard {
+  background: var(--bg-card);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  padding: 2rem;
+  margin-bottom: 1.5rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.sceneCard::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, var(--neon-magenta), var(--neon-cyan));
+}
+
+.sceneHeader {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.sceneNum {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--neon-magenta);
+  background: rgba(255, 45, 149, 0.1);
+  padding: 0.35rem 0.6rem;
+  letter-spacing: 0.1em;
+  flex-shrink: 0;
+}
+
+.sceneName {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-bottom: 0.15rem;
+}
+
+.sceneLoc {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+.sceneDesc {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: var(--text-muted);
+  margin-bottom: 1.25rem;
+}
+
+.sceneDetails {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  margin-bottom: 1.25rem;
+}
+
+.detailLabel {
+  font-size: 0.7rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 0.5rem;
+}
+
+.list {
+  list-style: none;
+  padding: 0;
+  font-size: 0.85rem;
+  line-height: 1.8;
+}
+
+.list li::before {
+  content: "— ";
+  color: var(--neon-cyan);
+}
+
+.sceneTransition {
+  font-size: 0.85rem;
+  color: var(--neon-cyan);
+  padding: 0.75rem 1rem;
+  background: rgba(0, 240, 255, 0.05);
+  border-left: 2px solid var(--neon-cyan);
+  margin-bottom: 0.75rem;
+}
+
+.sceneNote {
+  font-size: 0.85rem;
+  color: var(--neon-yellow);
+  padding: 0.75rem 1rem;
+  background: rgba(240, 255, 0, 0.05);
+  border-left: 2px solid var(--neon-yellow);
+}
+
+/* Cast summary */
+.castGrid {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.castRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.75rem 1rem;
+  background: var(--bg-card);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.castRole {
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.castStation {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+.castTotal {
+  font-size: 0.9rem;
+  color: var(--neon-cyan);
+  margin-top: 1rem;
+  font-weight: 600;
+}
+
+.gearCategory {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--neon-magenta);
+  margin-top: 2rem;
+  margin-bottom: 0.75rem;
+  letter-spacing: 0.05em;
+}
+
+.gearCategory:first-of-type {
+  margin-top: 0;
+}
+
+/* Footer */
+.footer {
+  padding: 3rem 0;
+  text-align: center;
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+@media (max-width: 600px) {
+  .sceneDetails {
+    grid-template-columns: 1fr;
+  }
+
+  .flowTrack {
+    gap: 0.25rem;
+  }
+
+  .flowNode {
+    min-width: 60px;
+    padding: 0.5rem;
+  }
+}

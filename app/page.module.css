@@ -60,18 +60,18 @@
   letter-spacing: 0.15em;
   text-transform: uppercase;
   color: var(--bg-dark);
-  background: linear-gradient(135deg, var(--neon-magenta), var(--neon-purple));
+  background: linear-gradient(135deg, #c9a227, #f0d060, #c9a227);
   border: none;
   border-radius: 0;
   cursor: pointer;
   transition: all 0.3s ease;
   text-decoration: none;
-  box-shadow: var(--glow-magenta);
+  box-shadow: 0 0 20px rgba(201, 162, 39, 0.4);
 }
 
 .ctaButton:hover {
   transform: translateY(-2px);
-  box-shadow: 0 0 40px rgba(255, 45, 149, 0.6);
+  box-shadow: 0 0 40px rgba(240, 208, 96, 0.6);
 }
 
 .scrollHint {
@@ -144,6 +144,51 @@
   font-weight: 600;
 }
 
+.detailSub {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  margin-top: 0.25rem;
+}
+
+/* What to expect */
+.expectList {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  margin-top: 1rem;
+}
+
+.expectItem {
+  display: flex;
+  gap: 1.5rem;
+  align-items: flex-start;
+}
+
+.expectIcon {
+  flex-shrink: 0;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 0.875rem;
+  background: var(--bg-card);
+  border: 1px solid rgba(255, 45, 149, 0.3);
+  color: var(--neon-magenta);
+}
+
+.expectTitle {
+  font-weight: 600;
+  font-size: 1.1rem;
+  margin-bottom: 0.25rem;
+}
+
+.expectDesc {
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
 /* About Section */
 .aboutText {
   font-size: 1.125rem;
@@ -153,6 +198,60 @@
 
 .aboutText em {
   color: var(--neon-cyan);
+  font-style: normal;
+}
+
+/* BLINK callout */
+.blinkCard {
+  margin-top: 3rem;
+  padding: 2rem;
+  background: var(--bg-card);
+  border: 1px solid rgba(0, 240, 255, 0.15);
+  position: relative;
+  overflow: hidden;
+}
+
+.blinkCard::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, var(--neon-cyan), var(--neon-yellow));
+}
+
+.blinkImage {
+  width: 100%;
+  height: auto;
+  display: block;
+  margin-bottom: 1.5rem;
+}
+
+.blinkLink {
+  color: var(--neon-cyan);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.blinkLink:hover {
+  color: var(--neon-yellow);
+}
+
+.blinkTitle {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--neon-cyan);
+  margin-bottom: 0.75rem;
+}
+
+.blinkText {
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
+.blinkText em {
+  color: var(--neon-yellow);
   font-style: normal;
 }
 
@@ -172,6 +271,13 @@
   width: 200px;
   height: 1px;
   background: linear-gradient(90deg, transparent, var(--neon-magenta), transparent);
+}
+
+.rsvpSubtext {
+  color: var(--text-muted);
+  font-size: 1rem;
+  margin-top: -0.5rem;
+  margin-bottom: 1rem;
 }
 
 .rsvpForm {
@@ -263,6 +369,12 @@
   transform: none;
 }
 
+.formNote {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  margin-top: 0.25rem;
+}
+
 .successMessage {
   padding: 2rem;
   text-align: center;
@@ -298,5 +410,9 @@
 
   .hero {
     padding: 1.5rem;
+  }
+
+  .expectItem {
+    gap: 1rem;
   }
 }
